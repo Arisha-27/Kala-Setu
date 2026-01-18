@@ -31,18 +31,25 @@ export default function AITrendSpotter() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/trends?limit=10")
+    // 👇 FIXED: Uses AWS Environment Variable (Render Backend)
+    // Fallback to localhost only if running on your laptop
+    const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
+    fetch(`${API_URL}/api/trends?limit=10`)
       .then(res => res.json())
       .then(data => {
-        setTrends(data.data)
+        // Safety check: ensure 'data.data' is an array
+        setTrends(data.data || [])
         setLoading(false)
       })
-      .catch(() => setLoading(false))
+      .catch((error) => {
+        console.error("Failed to fetch trends:", error);
+        setLoading(false)
+      })
   }, [])
 
-
   if (loading) {
-    return <div className="text-muted-foreground">Loading trends…</div>
+    return <div className="text-muted-foreground p-6">Loading trends...</div>
   }
 
   return (
@@ -81,61 +88,67 @@ export default function AITrendSpotter() {
           Trending Opportunities
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {trends.map(trend => (
-            <Card key={trend.id}>
-              <CardHeader>
-                <CardTitle className="text-lg">{trend.title}</CardTitle>
-                <div className="flex items-center gap-2 mt-2">
-                  <Badge variant="secondary">{trend.level}</Badge>
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    {/* {getMomentumIcon(trend.momentum)} */}
-                    {trend.momentum}
+        {trends.length === 0 ? (
+          <div className="text-center py-10 text-muted-foreground">
+            No trends found at the moment.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {trends.map(trend => (
+              <Card key={trend.id}>
+                <CardHeader>
+                  <CardTitle className="text-lg">{trend.title}</CardTitle>
+                  <div className="flex items-center gap-2 mt-2">
+                    <Badge variant="secondary">{trend.level}</Badge>
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      {/* {getMomentumIcon(trend.momentum)} */}
+                      {trend.momentum}
+                    </div>
                   </div>
-                </div>
-              </CardHeader>
+                </CardHeader>
 
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">{trend.description}</p>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">{trend.description}</p>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-sm font-medium">Time Frame</div>
-                    <div className="text-sm text-muted-foreground">
-                      {trend.timeFrame}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-sm font-medium">Time Frame</div>
+                      <div className="text-sm text-muted-foreground">
+                        {trend.timeFrame}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-sm font-medium">Confidence</div>
+                      <div className="text-sm text-muted-foreground">
+                        {Math.round(trend.confidenceScore)}%
+                      </div>
                     </div>
                   </div>
 
                   <div>
-                    <div className="text-sm font-medium">Confidence</div>
-                    <div className="text-sm text-muted-foreground">
-                      {Math.round(trend.confidenceScore)}%
+                    <div className="text-sm font-medium flex items-center gap-1 mb-2">
+                      <Lightbulb className="w-4 h-4" />
+                      Suggested Actions
                     </div>
+                    <ul className="space-y-1">
+                      {trend.actions.map((action, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground">
+                          • {action}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
 
-                <div>
-                  <div className="text-sm font-medium flex items-center gap-1 mb-2">
-                    <Lightbulb className="w-4 h-4" />
-                    Suggested Actions
-                  </div>
-                  <ul className="space-y-1">
-                    {trend.actions.map((action, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground">
-                        • {action}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Button className="w-full">
-                  <Target className="w-4 h-4 mr-2" />
-                  Create Listing for This Trend
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <Button className="w-full">
+                    <Target className="w-4 h-4 mr-2" />
+                    Create Listing for This Trend
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
