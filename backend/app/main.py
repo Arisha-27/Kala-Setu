@@ -83,4 +83,13 @@ async def fetch_trends(category: str = "handicrafts"):
         "category": category,
         "count": len(processed_trends),
         "data": processed_trends
-    }
+    }# ... (your existing imports)
+
+app = FastAPI()
+
+# 👇 ADD THIS ROOT ROUTE
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "Backend is running"}
+
+# ... (rest of your code)
