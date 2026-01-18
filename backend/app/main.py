@@ -58,7 +58,12 @@ app = FastAPI(title="Artisan Trend Spotter API")
 # This allows your React frontend to talk to this Python backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For production, use ["http://your-frontend-link.com"]
+    allow_origins=[
+        "http://localhost:8080",
+        "http://localhost:5173",
+        "https://kala-setu.onrender.com",
+        "https://main.d1oqd3c08oo5dl.amplifyapp.com" 
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
