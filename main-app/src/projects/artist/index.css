@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Artisan AI Design System - Professional Blue & Purple Palette from Dashboard Inspiration */
+
+@layer base {
+  :root {
+    /* Main background and foreground */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary colors - Deep Blue Purple (4B49AC) */
+    --primary: 242 56% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 242 56% 40%;
+
+    /* Light secondary colors */
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 0%;
+
+    /* Muted colors */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Light Blue accent (98BDFF) */
+    --accent: 224 100% 80%;
+    --accent-foreground: 0 0% 0%;
+    --accent-dark: 224 100% 70%;
+
+    /* Status colors */
+    --success: 120 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 60%;
+    --warning-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Supporting colors from dashboard */
+    --purple: 242 67% 71%;
+    --purple-foreground: 0 0% 100%;
+    --coral: 357 78% 73%;
+    --coral-foreground: 0 0% 100%;
+    --medium-blue: 224 92% 74%;
+    --medium-blue-foreground: 0 0% 0%;
+
+    /* Border and input */
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 242 56% 48%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 242 56% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 242 56% 48%;
+
+    /* Professional blue shades */
+    --blue-50: 242 56% 97%;
+    --blue-100: 242 56% 90%;
+    --blue-500: 242 56% 48%;
+    --blue-600: 242 56% 40%;
+    --blue-700: 242 56% 32%;
+
+    /* Light blue shades */
+    --light-blue-50: 224 100% 95%;
+    --light-blue-100: 224 100% 85%;
+    --light-blue-500: 224 100% 80%;
+    --light-blue-600: 224 100% 70%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 242 56% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 242 56% 45%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 224 100% 75%;
+    --accent-foreground: 0 0% 0%;
+    --accent-dark: 224 100% 65%;
+
+    --success: 120 60% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 0%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --purple: 242 67% 75%;
+    --purple-foreground: 0 0% 100%;
+    --coral: 357 78% 78%;
+    --coral-foreground: 0 0% 100%;
+    --medium-blue: 224 92% 80%;
+    --medium-blue-foreground: 0 0% 0%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 242 56% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Professional blue shades for dark mode */
+    --blue-50: 242 56% 20%;
+    --blue-100: 242 56% 25%;
+    --blue-500: 242 56% 55%;
+    --blue-600: 242 56% 45%;
+    --blue-700: 242 56% 35%;
+
+    /* Light blue shades for dark mode */
+    --light-blue-50: 224 100% 25%;
+    --light-blue-100: 224 100% 35%;
+    --light-blue-500: 224 100% 75%;
+    --light-blue-600: 224 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

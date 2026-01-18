@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pytrends
+pydantic
+python-dotenv
+supabase
+google-genai

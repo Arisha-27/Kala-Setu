@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DEFAULT THEME (Applies to Main Dashboard + Customer Pages) */
+    /* Warm, earthy base colors inspired by Haat Crafts */
+    --background: 30 25% 97%;
+    --foreground: 20 14% 15%;
+    --card: 30 30% 98%;
+    --card-foreground: 20 14% 15%;
+    --popover: 30 30% 98%;
+    --popover-foreground: 20 14% 15%;
+    
+    /* Terracotta Orange Primary */
+    --primary: 15 75% 55%;
+    --primary-foreground: 30 30% 98%;
+    
+    /* Deep Blue Secondary */
+    --secondary: 215 85% 25%;
+    --secondary-foreground: 30 30% 98%;
+    
+    /* Accents */
+    --accent: 45 95% 65%;
+    --accent-foreground: 20 14% 15%;
+    --muted: 30 15% 92%;
+    --muted-foreground: 20 10% 45%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 30% 98%;
+    
+    --border: 30 20% 88%;
+    --input: 30 25% 95%;
+    --ring: 15 75% 55%;
+    --radius: 0.75rem;
+
+    /* Custom Gradients */
+    --gradient-sunset: linear-gradient(135deg, hsl(15 75% 55%), hsl(35 85% 55%), hsl(45 95% 65%));
+  }
+
+  /* 🟣 ARTIST THEME OVERRIDE (Only applies when 'theme-artist' class is present) */
+  .theme-artist {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    
+    /* Vivid Purple Primary */
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 262 10% 96%;
+    --accent-foreground: 262 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
+
+    /* Artist Gradient Override */
+    --gradient-sunset: linear-gradient(135deg, hsl(262.1 83.3% 57.8%), hsl(240 5.9% 10%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-sm bg-card/80 border border-border/50;
+  }
+  
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  
+  .text-gradient-sunset {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

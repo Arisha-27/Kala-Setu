@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Artisan Marketplace Design System - Celebrating Indian Handicrafts */
+
+@layer base {
+  :root {
+    /* Warm, earthy base colors inspired by Indian crafts */
+    --background: 30 25% 97%;
+    --foreground: 20 14% 15%;
+
+    --card: 30 30% 98%;
+    --card-foreground: 20 14% 15%;
+
+    --popover: 30 30% 98%;
+    --popover-foreground: 20 14% 15%;
+
+    /* Terracotta and warm tones - primary brand colors */
+    --primary: 15 75% 55%;
+    --primary-foreground: 30 30% 98%;
+    --primary-light: 15 65% 65%;
+    --primary-dark: 15 85% 45%;
+
+    /* Deep blue inspired by indigo dye */
+    --secondary: 215 85% 25%;
+    --secondary-foreground: 30 30% 98%;
+    --secondary-light: 215 75% 35%;
+
+    /* Warm golden accents */
+    --accent: 45 95% 65%;
+    --accent-foreground: 20 14% 15%;
+    --accent-warm: 35 85% 55%;
+
+    /* Sophisticated grays with warm undertones */
+    --muted: 30 15% 92%;
+    --muted-foreground: 20 10% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 30% 98%;
+
+    --border: 30 20% 88%;
+    --input: 30 25% 95%;
+    --ring: 15 75% 55%;
+
+    --radius: 0.75rem;
+
+    /* Rich gradients inspired by traditional textiles */
+    --gradient-sunset: linear-gradient(135deg, hsl(15 75% 55%), hsl(35 85% 55%), hsl(45 95% 65%));
+    --gradient-indigo: linear-gradient(135deg, hsl(215 85% 25%), hsl(225 75% 35%));
+    --gradient-warm: linear-gradient(180deg, hsl(30 25% 97%), hsl(30 30% 95%));
+    --gradient-craft: linear-gradient(45deg, hsl(15 65% 65%), hsl(25 75% 60%));
+
+    /* Elegant shadows with warm undertones */
+    --shadow-warm: 0 4px 20px -2px hsl(15 75% 55% / 0.15);
+    --shadow-elegant: 0 10px 40px -10px hsl(20 14% 15% / 0.1);
+    --shadow-glow: 0 0 30px hsl(45 95% 65% / 0.3);
+
+    /* Smooth animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-elegant: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode with warm, rich tones */
+    --background: 20 25% 8%;
+    --foreground: 30 25% 95%;
+
+    --card: 20 20% 10%;
+    --card-foreground: 30 25% 95%;
+
+    --popover: 20 20% 10%;
+    --popover-foreground: 30 25% 95%;
+
+    --primary: 15 75% 55%;
+    --primary-foreground: 30 25% 95%;
+    --primary-light: 15 65% 65%;
+    --primary-dark: 15 85% 45%;
+
+    --secondary: 215 75% 35%;
+    --secondary-foreground: 30 25% 95%;
+    --secondary-light: 215 65% 45%;
+
+    --accent: 45 85% 60%;
+    --accent-foreground: 20 25% 8%;
+    --accent-warm: 35 75% 50%;
+
+    --muted: 20 15% 15%;
+    --muted-foreground: 30 15% 65%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 30 25% 95%;
+
+    --border: 20 20% 18%;
+    --input: 20 15% 12%;
+    --ring: 15 75% 55%;
+
+    /* Dark mode gradients */
+    --gradient-sunset: linear-gradient(135deg, hsl(15 75% 45%), hsl(35 85% 45%), hsl(45 95% 55%));
+    --gradient-indigo: linear-gradient(135deg, hsl(215 75% 20%), hsl(225 65% 25%));
+    --gradient-warm: linear-gradient(180deg, hsl(20 25% 8%), hsl(20 20% 10%));
+    --gradient-craft: linear-gradient(45deg, hsl(15 65% 45%), hsl(25 75% 40%));
+
+    --shadow-warm: 0 4px 20px -2px hsl(15 75% 25% / 0.3);
+    --shadow-elegant: 0 10px 40px -10px hsl(20 14% 5% / 0.5);
+    --shadow-glow: 0 0 30px hsl(45 95% 45% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Artisan-specific utility classes */
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .gradient-indigo {
+    background: var(--gradient-indigo);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-craft {
+    background: var(--gradient-craft);
+  }
+
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-elegant {
+    transition: var(--transition-elegant);
+  }
+
+  /* Beautiful glass morphism effect for cards */
+  .glass-card {
+    @apply backdrop-blur-sm bg-card/80 border border-border/50;
+  }
+
+  /* Hover effects for interactive elements */
+  .hover-lift {
+    @apply transition-smooth hover:shadow-elegant hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-smooth hover:shadow-glow;
+  }
+
+  /* Text gradient effects */
+  .text-gradient-sunset {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-craft {
+    background: var(--gradient-craft);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
